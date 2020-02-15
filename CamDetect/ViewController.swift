@@ -11,6 +11,7 @@ import AVKit
 import Vision
 
 var linkObj = "Chair"
+var resultsObj = [VNClassificationObservation]()
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
@@ -49,6 +50,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // TODO: Make API call here
+        print(linkObj)
     }
     
     // Get object name from camera output
@@ -56,37 +58,51 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
-        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { return }
-        let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
-            
-            print("Finished request results: \(String(describing: finishedReq.results))")
-            
+        guard let resNetModel = try? VNCoreMLModel(for: Resnet50().model) else { return }
+        let request = VNCoreMLRequest(model: resNetModel) { (finishedReq, err) in
             guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
             guard let firstObs = results.first else { return }
             
             DispatchQueue.main.async {
             }
-            
-            print("Print First Objects identifier: \(firstObs.identifier)")
+                    
+            resultsObj = results
             
             var objRaw = String(firstObs.identifier)
-            if (objRaw.contains(" ")) {
-                if let first = objRaw.components(separatedBy: " ").first {
+            if (objRaw.contains(",")) {
+                if let first = objRaw.components(separatedBy: ",").first {
                     // Do something with the first component.
                     objRaw = first
-                }
-                if (!objRaw.isEmpty) {
-                    if (objRaw[objRaw.index(before: objRaw.endIndex)] == ",") {
-                        objRaw = String(objRaw.dropLast())
-                    }
                 }
             }
             
             linkObj = objRaw
         }
-
-        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
         
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+    }
+    
+    func makeModelGuess(model_in: VNCoreMLModel) -> VNCoreMLRequest {
+        let request = VNCoreMLRequest(model: model_in) { (finishedReq, err) in
+            guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
+            guard let firstObs = results.first else { return }
+            
+            DispatchQueue.main.async {
+            }
+                    
+            resultsObj = results
+            
+            var objRaw = String(firstObs.identifier)
+            if (objRaw.contains(",")) {
+                if let first = objRaw.components(separatedBy: ",").first {
+                    // Do something with the first component.
+                    objRaw = first
+                }
+            }
+            
+            linkObj = objRaw
+        }
+        return request
     }
 
     override func didReceiveMemoryWarning() {
