@@ -49,8 +49,33 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // TODO: Make API call here
+//        let params = ["token": "JRZMKTSQQJTRUIHTLNQYFIYWTWWUJRASLABQOSAPPVVTBHHOPRDOOEWDWBAMCLRT",
+//                      "source": "ebay",
+//                      "country": "us",
+//                      "topic": "product_and_offers",
+//                      "key": "term",
+//                      "values": linkObj] as Dictionary<String, String>
+//
+//        var request = URLRequest(url: URL(string: "https://api.priceapi.com/v2/jobs")!)
+//        request.httpMethod = "POST"
+//        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//        let session = URLSession.shared
+//        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
+//            print(response!)
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
+//                print(json)
+//            } catch {
+//                print("error")
+//            }
+//        })
+//
+//        task.resume()
+//
         print(linkObj)
+        objLabel.text = linkObj
     }
     
     // Get object name from camera output
