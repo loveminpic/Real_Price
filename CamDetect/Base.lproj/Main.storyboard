@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,28 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2018-08-21 at 12.20.50 AM.png" translatesAutoresizingMaskIntoConstraints="NO" id="zsI-Am-Q9H">
-                                <rect key="frame" x="16" y="461" width="249" height="158"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Tap the screen to look up facts about what you see" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gww-FZ-NcH">
-                                <rect key="frame" x="29" y="491" width="227" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gww-FZ-NcH">
+                                <rect key="frame" x="74" y="531" width="227" height="128"/>
+                                <string key="text">Price: $0.00
+Source: Ebay</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Object" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv6-Gw-9Fy">
-                                <rect key="frame" x="33" y="471" width="223" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Object" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv6-Gw-9Fy">
+                                <rect key="frame" x="160.5" y="502" width="54.5" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.3937419041450777" green="0.3937419041450777" blue="0.3937419041450777" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.80818895725388606" green="0.80818895725388606" blue="0.80818895725388606" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2020-02-15 at 2.42.07 PM" translatesAutoresizingMaskIntoConstraints="NO" id="zsI-Am-Q9H">
+                                <rect key="frame" x="38.5" y="489.5" width="298" height="157"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="298" id="TDy-B9-IbI"/>
+                                    <constraint firstAttribute="height" constant="157" id="z0g-eY-lhv"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gww-FZ-NcH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EZ4-CT-GrG"/>
+                            <constraint firstItem="vv6-Gw-9Fy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NzX-ZE-I8Q"/>
+                            <constraint firstItem="vv6-Gw-9Fy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="179" id="Qio-Fg-w7G"/>
+                            <constraint firstItem="zsI-Am-Q9H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="234.5" id="a1Y-ca-qs6"/>
+                            <constraint firstItem="zsI-Am-Q9H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oBe-FM-D3E"/>
+                            <constraint firstItem="gww-FZ-NcH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zs4-5J-dOV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -54,6 +64,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2018-08-21 at 12.20.50 AM.png" width="564" height="388"/>
+        <image name="Screen Shot 2020-02-15 at 2.42.07 PM" width="470" height="360"/>
     </resources>
 </document>
